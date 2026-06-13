@@ -5,6 +5,7 @@ import { initDb } from "./db/initdb";
 const PORT = process.env.PORT || 3000;
 
 async function startServer() {
+  console.log("DATABASE_URL:", process.env.DATABASE_URL);
   try {
     await pool.query("SELECT NOW()");
     console.log("Database Connected");
