@@ -2,13 +2,14 @@ import express from "express";
 import { AuthRoutes } from "./modules/auth/auth.route";
 import { IssueRoutes } from "./modules/issues/issues.routes";
 import globalErrorHandler from "./middleware/globalErrorHandler";
+import { pool } from "./config/db";
 
 const app = express();
 
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("DevPulse API Running");
+  res.json({ status: "ok" });
 });
 app.use("/api/auth", AuthRoutes);
 app.use("/api/issues", IssueRoutes);
